@@ -12,4 +12,15 @@
     <string name="title_onlineclass">在线课堂</string>
     <string name="title_practiceonline">在线练习</string>
     <string name="title_knowledgebroadcast">知识广播</string>
+
+    <string name="item_title_online_class_work_from">作品来源:</string>
+    <string name="item_title_online_class_stage">阶段:</string>
+    <string name="item_title_online_class_type">类型:</string>
+
+    <string name="online_class_project_type">项目类型:</string>
+    <string name="online_class_project_stage">阶段:</string>
+    <string name="online_class_project_sort">排序:</string>
+
+    <string name="text_ok">确定</string>
+    <string name="text_cancel">取消</string>
 </resources>

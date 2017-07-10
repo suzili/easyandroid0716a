@@ -11,4 +11,15 @@
     <string name="title_onlineclass">OnlineClass</string>
     <string name="title_practiceonline">PracticeOnline</string>
     <string name="title_knowledgebroadcast">KnowledgeBroadcast</string>
+
+    <string name="item_title_online_class_work_from">WorkFrom:</string>
+    <string name="item_title_online_class_stage">Stage:</string>
+    <string name="item_title_online_class_type">Type:</string>
+
+    <string name="online_class_project_type">ProjectType:</string>
+    <string name="online_class_project_stage">Stage:</string>
+    <string name="online_class_project_sort">Sort:</string>
+
+    <string name="text_ok">OK</string>
+    <string name="text_cancel">Cancel</string>
 </resources>

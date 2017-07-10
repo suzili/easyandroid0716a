@@ -26,7 +26,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
 		implements NavigationView.OnNavigationItemSelectedListener {
-	private Toolbar mToolbar;
 	private DrawerLayout drawer;
 	private NavigationView navigationView;
 
@@ -47,12 +46,10 @@ public class MainActivity extends AppCompatActivity
 
 	//初始化基本View(侧边栏)
 	private void initSuperView() {
-		mToolbar = (Toolbar) findViewById(R.id.toolbar);
-		setSupportActionBar(mToolbar);
 
 		drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 		ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-				this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+				this, drawer, null, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 		drawer.setDrawerListener(toggle);
 		toggle.syncState();
 
@@ -89,7 +86,15 @@ public class MainActivity extends AppCompatActivity
 	private void initViewPager() {
 		fragmentList = new ArrayList<>();
 		fragmentList.add(new FragmentMainWorkExchange());
-		fragmentList.add(new FragmentMainOnlineClass());
+		FragmentMainOnlineClass mFragmentMainOnlineClass = new FragmentMainOnlineClass();
+		mFragmentMainOnlineClass.SetOpenNavListener(new FragmentMainOnlineClass.OpenNavListener() {
+			@Override
+			public void openNav() {
+				drawer.openDrawer(GravityCompat.START);
+			}
+		});
+
+		fragmentList.add(mFragmentMainOnlineClass);
 		fragmentList.add(new FragmentMainPracticeOnline());
 		fragmentList.add(new FragmentMainKnowledgeBroadcast());
 
@@ -125,7 +130,7 @@ public class MainActivity extends AppCompatActivity
 
 	@Override
 	public void onBackPressed() {
-		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+		drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 		if (drawer.isDrawerOpen(GravityCompat.START)) {
 			drawer.closeDrawer(GravityCompat.START);
 		} else {
