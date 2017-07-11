@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ddffffff"
+    android:background="#ccffffff"
     android:orientation="vertical"
     android:padding="@dimen/layout_normal_padding">
 
@@ -76,6 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_box_radius_orange"
+                android:layout_margin="5dp"
                 android:text="时间降序"
                 android:textColor="@color/colorWhite"/>
 
@@ -83,9 +84,8 @@
                 android:id="@+id/button_sort_hot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_box_radius_orange"
-                android:text="热度降序"
-                android:textColor="@color/colorWhite"/>
+                android:background="@drawable/bg_line_radius_orange"
+                android:text="热度降序"/>
         </LinearLayout>
 
         <LinearLayout
@@ -99,6 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_box_radius_main"
+                android:layout_margin="5dp"
                 android:text="@string/text_cancel"
                 android:textColor="@color/colorWhite"/>
 

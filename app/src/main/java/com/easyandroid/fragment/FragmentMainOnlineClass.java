@@ -1,9 +1,11 @@
 package com.easyandroid.fragment;
 
+import android.os.Handler;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.easyandroid.R;
@@ -32,6 +34,8 @@ public class FragmentMainOnlineClass extends BaseFragment {
 	private OpenNavListener mOpenNavListener;
 	private ClassOnlineChoosePopupWindow mClassOnlineChoosePopupWindow;
 
+	private Handler mHandler = new Handler();
+
 	@Override
 	protected int getLayoutId() {
 		return R.layout.fragment_online_class;
@@ -53,22 +57,26 @@ public class FragmentMainOnlineClass extends BaseFragment {
 		initChooseView();
 		mClassOnlineChoosePopupWindow = new ClassOnlineChoosePopupWindow(getActivity(), typelist, stagelist, new ClassOnlineChoosePopupWindow.ItemClickListener() {
 			@Override
-			public void typeClick(String word) {
+			public void typeClick(int position, String word) {
 				ToastUtil.makeToastShort(getActivity(), "type:" + word);
 			}
 
 			@Override
-			public void stageClick(String word) {
+			public void stageClick(int position, String word) {
 				ToastUtil.makeToastShort(getActivity(), "stage:" + word);
 			}
 
 			@Override
-			public void doOK(String typeWord, String stageWord, String timeWord, String hotWord) {
+			public void doOK(String typeWord, String stageWord, boolean isSortTime, String upOrDown) {
+				String Sortby = "Hot";
+				if (isSortTime) {
+					Sortby = "Time";
+				}
 				ToastUtil.makeToastShort(getActivity(),
 						"type:" + typeWord
 								+ "\n" + "stage:" + stageWord
-								+ "\n" + "time:" + timeWord
-								+ "\n" + "hot:" + hotWord);
+								+ "\n" + "Sortby:" + Sortby
+								+ "\n" + "upOrDown:" + upOrDown);
 				mClassOnlineChoosePopupWindow.dismiss();
 			}
 
@@ -77,11 +85,22 @@ public class FragmentMainOnlineClass extends BaseFragment {
 				mClassOnlineChoosePopupWindow.dismiss();
 			}
 		});
+		mClassOnlineChoosePopupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+			@Override
+			public void onDismiss() {
+//				mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type);
+				setChooserAnimition(false);
+			}
+		});
+
 		mImageViewChoose.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				mClassOnlineChoosePopupWindow.setHeight(mListViewOnlineClassList.getHeight());
 				mClassOnlineChoosePopupWindow.setWidth(mFrameLayoutOnlineClassTitle.getWidth());
 				mClassOnlineChoosePopupWindow.showAsDropDown(mFrameLayoutOnlineClassTitle);
+//				mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill);
+				setChooserAnimition(true);
 			}
 		});
 	}
@@ -100,13 +119,12 @@ public class FragmentMainOnlineClass extends BaseFragment {
 	}
 
 	private void initChooseView() {
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 5; i++) {
 			typelist.add("type" + i);
 		}
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 3; i++) {
 			stagelist.add("stage" + i);
 		}
-
 	}
 
 	public interface OpenNavListener {
@@ -115,5 +133,69 @@ public class FragmentMainOnlineClass extends BaseFragment {
 
 	public void SetOpenNavListener(OpenNavListener mOpenNavListener) {
 		this.mOpenNavListener = mOpenNavListener;
+	}
+
+	private void setChooserAnimition(final boolean isOpen){
+		final int sleepTime = 70;
+		new Thread(){
+			@Override
+			public void run() {
+				mHandler.post(new Runnable() {
+					@Override
+					public void run() {
+						if(isOpen){
+							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill_a);
+						}else{
+							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill_c);
+						}
+					}
+				});
+				try {
+					Thread.sleep(sleepTime);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				mHandler.post(new Runnable() {
+					@Override
+					public void run() {
+						if(isOpen){
+							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill_b);
+						}else{
+							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill_b);
+						}
+					}
+				});
+				try {
+					Thread.sleep(sleepTime);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				mHandler.post(new Runnable() {
+					@Override
+					public void run() {
+						if(isOpen){
+							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill_c);
+						}else{
+							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill_a);
+						}
+					}
+				});
+				try {
+					Thread.sleep(sleepTime);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				mHandler.post(new Runnable() {
+					@Override
+					public void run() {
+						if(isOpen){
+							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill);
+						}else{
+							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type);
+						}
+					}
+				});
+			}
+		}.start();
 	}
 }

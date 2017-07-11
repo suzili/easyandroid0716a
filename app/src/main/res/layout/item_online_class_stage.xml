@@ -8,7 +8,6 @@
         android:id="@+id/button_stage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_box_radius_deepblue"
-        android:text="stage"
-        android:textColor="@color/colorWhite"/>
+        android:background="@drawable/bg_line_radius_deepblue"
+        android:text="stage"/>
 </LinearLayout>
