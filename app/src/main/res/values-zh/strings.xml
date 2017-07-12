@@ -21,6 +21,31 @@
     <string name="online_class_project_stage">阶段:</string>
     <string name="online_class_project_sort">排序:</string>
 
+    <string name="online_class_detail_title">项目详情</string>
+
+    <string name="online_class_small_detail_title">项目简介</string>
+    <string name="online_class_small_from_title">项目来源</string>
+    <string name="online_class_functional_module_title">功能模块</string>
+    <string name="online_class_all_comment_title">全部评论</string>
+    <string name="online_class_more_comment_title">更多评论</string>
+
+    <string name="online_class_tv_mod_name">模块名</string>
+    <string name="online_class_tv_develop_skills">培养能力</string>
+    <string name="online_class_tv_tea_ppt">教学PPT</string>
+
+    <string name="online_class_tv_req_doc">需求文档</string>
+    <string name="online_class_tv_des_doc">设计文档</string>
+    <string name="online_class_tv_source_code">源代码</string>
+    <string name="online_class_tv_app">应用程序</string>
+
+    <string name="online_class_tv_view_online">在线预览</string>
+    <string name="online_class_tv_download">下载</string>
+    <string name="online_class_tv_view_Play">播放</string>
+    <string name="online_class_tv_view_Download">下载</string>
+
+    <string name="text_input_some">在此输入您的评论</string>
+    <string name="text_send_comment">发表评论</string>
+
     <string name="text_ok">确定</string>
     <string name="text_cancel">取消</string>
 </resources>

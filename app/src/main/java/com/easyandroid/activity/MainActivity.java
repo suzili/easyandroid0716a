@@ -11,9 +11,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.easyandroid.R;
 import com.easyandroid.fragment.FragmentMainKnowledgeBroadcast;
@@ -31,6 +33,10 @@ public class MainActivity extends AppCompatActivity
 
 	private ViewPager mViewpagerMain;
 	private BottomNavigationView mBottomnavigationMain;
+	private FrameLayout mFrameLayoutMainTitle;
+	private ImageView mImageViewOpenNv;
+	private TextView mTextViewTitle;
+	private ImageView mImageViewChoose;
 
 	private List<Fragment> fragmentList;
 
@@ -85,7 +91,9 @@ public class MainActivity extends AppCompatActivity
 
 	private void initViewPager() {
 		fragmentList = new ArrayList<>();
+
 		fragmentList.add(new FragmentMainWorkExchange());
+
 		FragmentMainOnlineClass mFragmentMainOnlineClass = new FragmentMainOnlineClass();
 		mFragmentMainOnlineClass.SetOpenNavListener(new FragmentMainOnlineClass.OpenNavListener() {
 			@Override
@@ -93,9 +101,10 @@ public class MainActivity extends AppCompatActivity
 				drawer.openDrawer(GravityCompat.START);
 			}
 		});
-
 		fragmentList.add(mFragmentMainOnlineClass);
+
 		fragmentList.add(new FragmentMainPracticeOnline());
+
 		fragmentList.add(new FragmentMainKnowledgeBroadcast());
 
 		FragmentPagerAdapter mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {

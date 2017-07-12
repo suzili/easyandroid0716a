@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="300dp"
+    android:layout_marginLeft="30dp"
+    android:background="@drawable/bg_shadow_box_radius_main"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_weight="16"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView_load_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="@dimen/layout_normal_padding"
+            android:src="@drawable/ic_load_pic_error"/>
+
+        <ImageView
+            android:id="@+id/imageView_video_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="@dimen/layout_normal_padding"
+            android:src="@drawable/ic_play_circle_outline_black_24dp"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_weight="10"
+        android:background="@drawable/bg_shadow_box_radius_white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_video_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="Video_index1"
+            android:paddingTop="20dp"
+            android:textSize="@dimen/text_size_big"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/textView_project_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="Project_name1"
+            android:padding="@dimen/layout_normal_padding"
+            android:textSize="@dimen/text_size_normal"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/textView_video_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Video_info1Video_info1VideoVideo_info1Video_info1VideoVideo_info1Video_info1VideoVideo_info1Video_info1VideoVideo_info1Video_info1Video"
+            android:layout_weight="8"
+            android:padding="@dimen/layout_normal_padding"
+            android:textSize="@dimen/text_size_small"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="11"
+            android:gravity="center"
+            android:padding="@dimen/layout_normal_padding"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_online_class_video_play"
+                android:layout_width="48dp"
+                android:layout_height="@dimen/text_size_normal"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/layout_normal_padding"
+                android:background="@drawable/bg_line_radius_gray"
+                android:text="@string/online_class_tv_view_Play"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_small"/>
+
+
+            <Button
+                android:id="@+id/button_online_class_video_download"
+                android:layout_width="48dp"
+                android:layout_height="@dimen/text_size_normal"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/layout_normal_padding"
+                android:background="@drawable/bg_line_radius_gray"
+                android:text="@string/online_class_tv_view_Download"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_small"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

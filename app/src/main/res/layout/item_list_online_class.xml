@@ -133,32 +133,10 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView_like"
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    app:srcCompat="@drawable/ic_list_has_like"/>
-
-                <TextView
-                    android:id="@+id/textView_item_online_class"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:maxLines="1"
-                    android:text="208人点赞"
-                    android:textSize="@dimen/text_size_small"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="10"
-                android:orientation="horizontal">
-
-                <ImageView
                     android:id="@+id/imageView_list_people_see"
                     android:layout_width="12dp"
                     android:layout_height="12dp"
-                    app:srcCompat="@drawable/ic_list_people_see"/>
+                    android:src="@drawable/ic_list_people_see"/>
 
                 <TextView
                     android:id="@+id/textView_list_people_see"
@@ -167,28 +145,7 @@
                     android:layout_weight="1"
                     android:maxLines="1"
                     android:textSize="@dimen/text_size_small"
-                    android:text="34人浏览"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="10"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView_list_exchange"
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    app:srcCompat="@drawable/ic_list_exchange"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:maxLines="1"
-                    android:textSize="@dimen/text_size_small"
-                    android:text="98人转发"/>
+                    android:text="34View"/>
             </LinearLayout>
 
             <TextView
@@ -196,6 +153,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
+                android:gravity="right"
                 android:maxLines="1"
                 android:textSize="@dimen/text_size_small"
                 android:text="2017.07.10"/>

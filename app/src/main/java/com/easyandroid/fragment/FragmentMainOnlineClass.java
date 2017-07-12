@@ -1,7 +1,10 @@
 package com.easyandroid.fragment;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -9,6 +12,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.easyandroid.R;
+import com.easyandroid.activity.OnlineClassDetailActivity;
 import com.easyandroid.adapter.ClassOnlineChoosePopupWindow;
 import com.easyandroid.adapter.ItemListOnlineClassAdapter;
 import com.easyandroid.util.ToastUtil;
@@ -43,6 +47,7 @@ public class FragmentMainOnlineClass extends BaseFragment {
 
 	@Override
 	protected void initView() {
+		getArguments();
 		mListViewOnlineClassList = (ListView) findViewById(R.id.listView_online_class_list);
 		mImageViewOpenNv = (ImageView) findViewById(R.id.imageView_openNv);
 		mTextViewTitle = (TextView) findViewById(R.id.textView_title);
@@ -116,6 +121,13 @@ public class FragmentMainOnlineClass extends BaseFragment {
 			}
 		});
 		mListViewOnlineClassList.setAdapter(new ItemListOnlineClassAdapter(getActivity(), mainList));
+		mListViewOnlineClassList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				ToastUtil.makeToastShort(getActivity(), "position" + position);
+				startActivity(new Intent(getActivity(), OnlineClassDetailActivity.class));
+			}
+		});
 	}
 
 	private void initChooseView() {
@@ -135,17 +147,17 @@ public class FragmentMainOnlineClass extends BaseFragment {
 		this.mOpenNavListener = mOpenNavListener;
 	}
 
-	private void setChooserAnimition(final boolean isOpen){
+	private void setChooserAnimition(final boolean isOpen) {
 		final int sleepTime = 70;
-		new Thread(){
+		new Thread() {
 			@Override
 			public void run() {
 				mHandler.post(new Runnable() {
 					@Override
 					public void run() {
-						if(isOpen){
+						if (isOpen) {
 							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill_a);
-						}else{
+						} else {
 							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill_c);
 						}
 					}
@@ -158,9 +170,9 @@ public class FragmentMainOnlineClass extends BaseFragment {
 				mHandler.post(new Runnable() {
 					@Override
 					public void run() {
-						if(isOpen){
+						if (isOpen) {
 							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill_b);
-						}else{
+						} else {
 							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill_b);
 						}
 					}
@@ -173,9 +185,9 @@ public class FragmentMainOnlineClass extends BaseFragment {
 				mHandler.post(new Runnable() {
 					@Override
 					public void run() {
-						if(isOpen){
+						if (isOpen) {
 							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill_c);
-						}else{
+						} else {
 							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill_a);
 						}
 					}
@@ -188,9 +200,9 @@ public class FragmentMainOnlineClass extends BaseFragment {
 				mHandler.post(new Runnable() {
 					@Override
 					public void run() {
-						if(isOpen){
+						if (isOpen) {
 							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill);
-						}else{
+						} else {
 							mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type);
 						}
 					}

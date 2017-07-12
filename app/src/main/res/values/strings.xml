@@ -20,6 +20,31 @@
     <string name="online_class_project_stage">Stage:</string>
     <string name="online_class_project_sort">Sort:</string>
 
+    <string name="online_class_detail_title">Project Detail</string>
+
+    <string name="online_class_small_detail_title">SmallDetail</string>
+    <string name="online_class_small_from_title">ProjectFrom</string>
+    <string name="online_class_functional_module_title">FunctionalModule</string>
+    <string name="online_class_all_comment_title">AllComment</string>
+    <string name="online_class_more_comment_title">MoreComment</string>
+
+    <string name="online_class_tv_view_online">ViewOnline</string>
+    <string name="online_class_tv_download">Download</string>
+    <string name="online_class_tv_view_Play">Play</string>
+    <string name="online_class_tv_view_Download">Download</string>
+
+    <string name="online_class_tv_mod_name">ModuleName</string>
+    <string name="online_class_tv_develop_skills">DevelopSkills</string>
+    <string name="online_class_tv_tea_ppt">TeachingPPT</string>
+
+    <string name="online_class_tv_req_doc">ReqDoc</string>
+    <string name="online_class_tv_des_doc">DesDoc</string>
+    <string name="online_class_tv_source_code">SourceCode</string>
+    <string name="online_class_tv_app">Application</string>
+
+    <string name="text_input_some">Input Here</string>
+    <string name="text_send_comment">Send Comment</string>
+
     <string name="text_ok">OK</string>
     <string name="text_cancel">Cancel</string>
 </resources>

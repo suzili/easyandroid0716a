@@ -55,7 +55,6 @@ public class ItemListOnlineClassAdapter extends BaseAdapter {
 	}
 
 	private void initializeViews(String object, ViewHolder holder) {
-		holder.textViewItemOnlineClass.setText(object);
 	}
 
 	protected class ViewHolder {
@@ -65,7 +64,6 @@ public class ItemListOnlineClassAdapter extends BaseAdapter {
 		private TextView textViewItemStage;
 		private TextView textViewItemType;
 		private TextView textViewTime;
-		private TextView textViewItemOnlineClass;
 
 		public ViewHolder(View view) {
 			imageViewItemOnlineClassImg = (ImageView) view.findViewById(R.id.imageView_item_online_class_img);
@@ -74,7 +72,6 @@ public class ItemListOnlineClassAdapter extends BaseAdapter {
 			textViewItemStage = (TextView) view.findViewById(R.id.textView_item_stage);
 			textViewItemType = (TextView) view.findViewById(R.id.textView_item_type);
 			textViewTime = (TextView) view.findViewById(R.id.textView_time);
-			textViewItemOnlineClass = (TextView) view.findViewById(R.id.textView_item_online_class);
 		}
 	}
 }

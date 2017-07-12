@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.easyandroid.activity.OnlineClassDetailActivity">
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout_online_class_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorMain"
+        android:padding="@dimen/layout_normal_padding">
+
+        <ImageView
+            android:id="@+id/imageView_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:src="@drawable/ic_chevron_left_black_24dp"/>
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/online_class_detail_title"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_big"
+            android:textStyle="bold"/>
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:id="@+id/framelayout_banner"
+                android:layout_width="match_parent"
+                android:layout_height="288dp"
+                android:clipChildren="false"
+                android:gravity="center"
+                android:layerType="software"
+                android:orientation="horizontal"
+                android:padding="@dimen/layout_normal_padding">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpager_online_class_detail"
+                    android:layout_width="162dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:clipChildren="false">
+                </android.support.v4.view.ViewPager>
+
+                <ImageView
+                    android:id="@+id/imageView_turn_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:src="@drawable/ic_turn_left"/>
+
+                <ImageView
+                    android:id="@+id/imageView_turn_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:src="@drawable/ic_turn_right"/>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView_project_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="ProjectName"
+                    android:textSize="@dimen/text_size_big"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/layout_normal_padding">
+
+                <Button
+                    android:id="@+id/button_type"
+                    android:layout_width="36dp"
+                    android:layout_height="12dp"
+                    android:layout_marginRight="@dimen/layout_normal_padding"
+                    android:background="@drawable/bg_box_radius_orange"
+                    android:text="Type"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_small"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/layout_normal_padding"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView_like"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_list_has_like"/>
+
+                    <TextView
+                        android:id="@+id/textView_item_online_class"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:text="208Like"
+                        android:textSize="@dimen/text_size_small"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView_list_people_see"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_list_people_see"/>
+
+                    <TextView
+                        android:id="@+id/textView_list_people_see"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:text="34View"
+                        android:textSize="@dimen/text_size_small"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:background="@drawable/bg_divider_small_gray"
+                android:orientation="horizontal">
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_normal_padding">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_online_class_point"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/online_class_small_detail_title"
+                        android:textSize="@dimen/text_size_big"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/textView_project_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:gravity="center"
+                    android:text="1997.07.07"
+                    android:textSize="@dimen/text_size_big"
+                    android:textStyle="bold"/>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/textView_project_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_normal_padding"
+                android:text="《道德经》是春秋时期老子（李耳）的哲学作品，又称《道德真经》、《老子》、《五千言》、《老子五千文》，是中国古代先秦诸子分家前的一部著作，为其时诸子所共仰，是道家哲学思想的重要来源。道德经分上下两篇，原文上篇《德经》、下篇《道经》，不分章，后改为《道经》37章在前，第38章之后为《德经》，并分为81章。"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/bg_divider_small_gray"
+                android:orientation="horizontal">
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_normal_padding">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_online_class_point"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/online_class_small_from_title"
+                        android:textSize="@dimen/text_size_big"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView_project_project_from"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:gravity="center"
+                    android:text="Chengdu Polytechnic"
+                    android:textSize="@dimen/text_size_big"
+                    android:textStyle="bold"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/layout_normal_padding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_online_class_req_doc"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/online_class_tv_req_doc"/>
+
+                    <Button
+                        android:id="@+id/button_online_class_view_rep_doc"
+                        android:layout_width="48dp"
+                        android:layout_height="@dimen/text_size_normal"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/layout_normal_padding"
+                        android:background="@drawable/bg_line_radius_gray"
+                        android:text="@string/online_class_tv_view_online"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_size_small"/>
+
+                    <Button
+                        android:id="@+id/button_online_class_donload_rep_doc"
+                        android:layout_width="48dp"
+                        android:layout_height="@dimen/text_size_normal"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_line_radius_gray"
+                        android:text="@string/online_class_tv_download"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_size_small"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_online_class_des_doc"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/online_class_tv_des_doc"/>
+
+                    <Button
+                        android:id="@+id/button_online_class_view_des_doc"
+                        android:layout_width="48dp"
+                        android:layout_height="@dimen/text_size_normal"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/layout_normal_padding"
+                        android:background="@drawable/bg_line_radius_gray"
+                        android:text="@string/online_class_tv_view_online"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_size_small"/>
+
+                    <Button
+                        android:id="@+id/button_online_class_donload_des_doc"
+                        android:layout_width="48dp"
+                        android:layout_height="@dimen/text_size_normal"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_line_radius_gray"
+                        android:text="@string/online_class_tv_download"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_size_small"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_online_class_source_code"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/online_class_tv_source_code"/>
+
+                    <Button
+                        android:id="@+id/button_online_class_view_source_code"
+                        android:layout_width="48dp"
+                        android:layout_height="@dimen/text_size_normal"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/layout_normal_padding"
+                        android:background="@drawable/bg_line_radius_gray"
+                        android:text="@string/online_class_tv_view_online"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_size_small"/>
+
+                    <Button
+                        android:id="@+id/button_online_class_donload_source_code"
+                        android:layout_width="48dp"
+                        android:layout_height="@dimen/text_size_normal"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_line_radius_gray"
+                        android:text="@string/online_class_tv_download"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_size_small"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_online_class_app"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/online_class_tv_app"/>
+
+                    <Button
+                        android:id="@+id/button_online_class_view_app"
+                        android:layout_width="48dp"
+                        android:layout_height="@dimen/text_size_normal"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/layout_normal_padding"
+                        android:background="@drawable/bg_line_radius_gray"
+                        android:text="@string/online_class_tv_view_online"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_size_small"/>
+
+                    <Button
+                        android:id="@+id/button_online_class_donload_app"
+                        android:layout_width="48dp"
+                        android:layout_height="@dimen/text_size_normal"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_line_radius_gray"
+                        android:text="@string/online_class_tv_download"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/text_size_small"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/bg_divider_small_gray"
+                android:orientation="horizontal">
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_normal_padding">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_online_class_point"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/online_class_functional_module_title"
+                        android:textSize="@dimen/text_size_big"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/layout_big_padding"
+                android:paddingRight="@dimen/layout_big_padding"
+                android:paddingTop="@dimen/layout_big_padding">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_box_half_radius_main"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/online_class_tv_mod_name"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_box_half_radius_main"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/online_class_tv_develop_skills"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_box_half_radius_main"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/online_class_tv_tea_ppt"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/layout_normal_padding"
+                android:layout_marginRight="@dimen/layout_normal_padding"
+                android:divider="@drawable/divider_line_v_main"
+                android:orientation="vertical"
+                android:showDividers="middle|beginning|end">
+
+                <include
+                    layout="@layout/online_class_deatil_table_row"/>
+                <include
+                    layout="@layout/online_class_deatil_table_row"/>
+                <include
+                    layout="@layout/online_class_deatil_table_row"/>
+
+            </TableLayout>
+
+            <HorizontalScrollView
+                android:paddingTop="@dimen/layout_normal_padding"
+                android:paddingBottom="@dimen/layout_normal_padding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include
+                        layout="@layout/online_class_deatil_video_cell"/>
+                    <include
+                        layout="@layout/online_class_deatil_video_cell"/>
+                    <include
+                        layout="@layout/online_class_deatil_video_cell"/>
+                    <include
+                        layout="@layout/online_class_deatil_video_cell"/>
+                    <include
+                        layout="@layout/online_class_deatil_video_cell"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/bg_divider_small_gray"
+                android:orientation="horizontal">
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_normal_padding">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_online_class_point"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/online_class_all_comment_title"
+                        android:textSize="@dimen/text_size_big"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:padding="@dimen/layout_normal_padding"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/item_online_class_comment"/>
+                <include layout="@layout/item_online_class_comment"/>
+                <include layout="@layout/item_online_class_comment"/>
+                <include layout="@layout/item_online_class_comment"/>
+                <include layout="@layout/item_online_class_comment"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/online_class_more_comment_title"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_online_class_more_comment"/>
+            </LinearLayout>
+
+            <EditText
+                android:padding="@dimen/layout_normal_padding"
+                android:layout_margin="@dimen/layout_normal_padding"
+                android:id="@+id/editText_input_comment"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:gravity="top"
+                android:background="@drawable/bg_online_class_input"
+                android:inputType="textMultiLine"
+                android:minLines="5"
+                android:hint="@string/text_input_some"/>
+
+            <Button
+                android:id="@+id/button_online_class_send_comment"
+                android:layout_width="86dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/layout_normal_padding"
+                android:background="@drawable/bg_line_radius_gray"
+                android:text="@string/text_send_comment"
+                android:textAllCaps="false"
+                android:textSize="@dimen/text_size_big"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
