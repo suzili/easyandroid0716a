@@ -13,6 +13,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +24,7 @@ import com.easyandroid.fragment.FragmentMainKnowledgeBroadcast;
 import com.easyandroid.fragment.FragmentMainOnlineClass;
 import com.easyandroid.fragment.FragmentMainPracticeOnline;
 import com.easyandroid.fragment.FragmentMainWorkExchange;
+import com.easyandroid.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +40,11 @@ public class MainActivity extends AppCompatActivity
 	private ImageView mImageViewOpenNv;
 	private TextView mTextViewTitle;
 	private ImageView mImageViewChoose;
+	private Button mButtonRegLogout;
+	private View nav_head_view;
+	private ImageView mNavHeadUserIcon;
+	private TextView mNavHeadUserName;
+	private TextView mNavHeadUserOther;
 
 	private List<Fragment> fragmentList;
 
@@ -52,15 +60,25 @@ public class MainActivity extends AppCompatActivity
 
 	//初始化基本View(侧边栏)
 	private void initSuperView() {
-
 		drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+		navigationView = (NavigationView) findViewById(R.id.nav_view);
+		nav_head_view = navigationView.getHeaderView(0);
+		mButtonRegLogout = (Button) findViewById(R.id.button_reg_logout);
+		mNavHeadUserIcon = (ImageView) nav_head_view.findViewById(R.id.nav_head_user_icon);
+		mNavHeadUserName = (TextView) nav_head_view.findViewById(R.id.nav_head_user_name);
+		mNavHeadUserOther = (TextView) nav_head_view.findViewById(R.id.nav_head_user_other);
+
 		ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
 				this, drawer, null, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 		drawer.setDrawerListener(toggle);
 		toggle.syncState();
-
-		navigationView = (NavigationView) findViewById(R.id.nav_view);
 		navigationView.setNavigationItemSelectedListener(this);
+		mButtonRegLogout.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				ToastUtil.makeToastShort(MainActivity.this,"hola:"+mButtonRegLogout.getText());
+			}
+		});
 	}
 
 	private void initView() {
@@ -175,18 +193,19 @@ public class MainActivity extends AppCompatActivity
 		// Handle navigation view item clicks here.
 		int id = item.getItemId();
 
-		if (id == R.id.nav_camera) {
-			// Handle the camera action
-		} else if (id == R.id.nav_gallery) {
-
-		} else if (id == R.id.nav_slideshow) {
-
-		} else if (id == R.id.nav_manage) {
-
-		} else if (id == R.id.nav_share) {
-
-		} else if (id == R.id.nav_send) {
-
+		switch (id){
+			case R.id.nav_user_info:
+				ToastUtil.makeToastShort(MainActivity.this,"hola:"+id);
+				break;
+			case R.id.nav_answer_log:
+				ToastUtil.makeToastShort(MainActivity.this,"hola:"+id);
+				break;
+			case R.id.nav_exchange_log:
+				ToastUtil.makeToastShort(MainActivity.this,"hola:"+id);
+				break;
+			case R.id.nav_knowledge_log:
+				ToastUtil.makeToastShort(MainActivity.this,"hola:"+id);
+				break;
 		}
 
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

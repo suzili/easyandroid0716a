@@ -45,6 +45,13 @@
 
     <string name="text_input_some">在此输入您的评论</string>
     <string name="text_send_comment">发表评论</string>
+    <string name="text_logout">注销登陆</string>
+    <string name="text_login_or_reg">登陆/注册</string>
+
+    <string name="nav_menu_item_title_user_info">用户信息</string>
+    <string name="nav_menu_item_title_answer_log">答题记录</string>
+    <string name="nav_menu_item_title_exchange_log">交流记录</string>
+    <string name="nav_menu_item_title_knowledge_log">广播记录</string>
 
     <string name="text_ok">确定</string>
     <string name="text_cancel">取消</string>

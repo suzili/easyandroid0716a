@@ -44,6 +44,13 @@
 
     <string name="text_input_some">Input Here</string>
     <string name="text_send_comment">Send Comment</string>
+    <string name="text_logout">Logout</string>
+    <string name="text_login_or_reg">Login/reg</string>
+
+    <string name="nav_menu_item_title_user_info">User Info</string>
+    <string name="nav_menu_item_title_answer_log">Answer Log</string>
+    <string name="nav_menu_item_title_exchange_log">Exchange Log</string>
+    <string name="nav_menu_item_title_knowledge_log">Knowledge Log</string>
 
     <string name="text_ok">OK</string>
     <string name="text_cancel">Cancel</string>
