@@ -2,6 +2,7 @@ package com.easyandroid.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,15 @@ import android.widget.GridView;
 import android.widget.PopupWindow;
 
 import com.easyandroid.R;
+import com.easyandroid.dto.APPType;
+import com.easyandroid.util.Constant;
+import com.easyandroid.util.HttpUtil;
+import com.easyandroid.util.ToastUtil;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -29,12 +38,10 @@ public class ClassOnlineChoosePopupWindow<T> extends PopupWindow {
 	private Button mButtonSortOk;
 	private Button mButtonSortCancel;
 
-	private List<String> typelist;
-	private List<String> stagelist;
 	private Context context;
 
-	private String typeWord = "";
-	private String stageWord = "";
+	private APPType typeWord = new APPType();
+	private APPType stageWord = new APPType();
 	private String timeWord = "down";
 	private String hotWord = "down";
 	private boolean sortIsTime = true;
@@ -48,22 +55,21 @@ public class ClassOnlineChoosePopupWindow<T> extends PopupWindow {
 	private TypeAdapter mTypeAdapter;
 	private StageAdapter mStageAdapter;
 
-	public ClassOnlineChoosePopupWindow(Context context,
-										List<String> typelist,
-										List<String> stagelist,
-										ItemClickListener mItemClickListener) {
+	private List<APPType> typelist = new ArrayList<>();
+	private List<APPType> stagelist = new ArrayList<>();
+
+	private Handler mHandler = new Handler();
+
+	public ClassOnlineChoosePopupWindow(Context context, ItemClickListener mItemClickListener) {
 		super(context);
 		inflater = LayoutInflater.from(context);
 		this.context = context;
-		this.typelist = typelist;
-		this.stagelist = stagelist;
 		this.mItemClickListener = mItemClickListener;
-		init();
+
+		initView();
 	}
 
-	private void init() {
-		typeWord = typelist.get(0);
-		stageWord = stagelist.get(0);
+	private void initView() {
 		View view = inflater.inflate(R.layout.popupwindow_online_class_choose, null);
 		setContentView(view);
 		setWidth(WindowManager.LayoutParams.WRAP_CONTENT);
@@ -107,18 +113,14 @@ public class ClassOnlineChoosePopupWindow<T> extends PopupWindow {
 				setCheckTime(false);
 			}
 		});
-		mTypeAdapter = new TypeAdapter();
-		mStageAdapter = new StageAdapter();
 
-		mGridViewType.setAdapter(mTypeAdapter);
-		mGridViewStage.setAdapter(mStageAdapter);
 		mButtonSortOk.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				if (sortIsTime) {
-					mItemClickListener.doOK(typeWord, stageWord, sortIsTime, timeWord);
+					mItemClickListener.doOK(typeWord.getId() + "", stageWord.getId() + "", sortIsTime, timeWord);
 				} else {
-					mItemClickListener.doOK(typeWord, stageWord, sortIsTime, hotWord);
+					mItemClickListener.doOK(typeWord.getId() + "", stageWord.getId() + "", sortIsTime, hotWord);
 				}
 			}
 		});
@@ -142,6 +144,86 @@ public class ClassOnlineChoosePopupWindow<T> extends PopupWindow {
 				}
 			}
 		};
+		initTypeData();
+		initStageData();
+	}
+
+	private void initTypeData() {
+		new Thread() {
+			@Override
+			public void run() {
+				HttpUtil mHttpUtil = HttpUtil.getInstance();
+				mHttpUtil.postJson(Constant.apptype, new JsonObject().toString(), new HttpUtil.PostCallBack() {
+					@Override
+					public void success(final String res) {
+						typelist = Arrays.asList(new Gson().fromJson(res, APPType[].class));
+						mHandler.post(new Runnable() {
+							@Override
+							public void run() {
+								initTypeAdapter();
+							}
+						});
+					}
+
+					@Override
+					public void error(final Exception e) {
+						mHandler.post(new Runnable() {
+							@Override
+							public void run() {
+								ToastUtil.makeToastShort(context, e + "");
+							}
+						});
+					}
+				});
+			}
+		}.start();
+	}
+
+	private void initStageData() {
+		new Thread() {
+			@Override
+			public void run() {
+				HttpUtil mHttpUtil = HttpUtil.getInstance();
+				mHttpUtil.postJson(Constant.appstage, new JsonObject().toString(), new HttpUtil.PostCallBack() {
+					@Override
+					public void success(final String res) {
+						stagelist = Arrays.asList(new Gson().fromJson(res, APPType[].class));
+						mHandler.post(new Runnable() {
+							@Override
+							public void run() {
+								initStageAdapter();
+							}
+						});
+					}
+
+					@Override
+					public void error(final Exception e) {
+						mHandler.post(new Runnable() {
+							@Override
+							public void run() {
+								ToastUtil.makeToastShort(context, e + "");
+							}
+						});
+					}
+				});
+			}
+		}.start();
+	}
+
+	private void initTypeAdapter() {
+		if (typelist.size() > 0) {
+			typeWord = typelist.get(0);
+		}
+		mTypeAdapter = new TypeAdapter();
+		mGridViewType.setAdapter(mTypeAdapter);
+	}
+
+	private void initStageAdapter() {
+		if (stagelist.size() > 0) {
+			stageWord = stagelist.get(0);
+		}
+		mStageAdapter = new StageAdapter();
+		mGridViewStage.setAdapter(mStageAdapter);
 	}
 
 	public class TypeAdapter extends BaseAdapter {
@@ -152,7 +234,7 @@ public class ClassOnlineChoosePopupWindow<T> extends PopupWindow {
 		}
 
 		@Override
-		public String getItem(int position) {
+		public APPType getItem(int position) {
 			return typelist.get(position);
 		}
 
@@ -167,7 +249,7 @@ public class ClassOnlineChoosePopupWindow<T> extends PopupWindow {
 			convertView = inflater.inflate(R.layout.item_online_class_type, null);
 			holder.mButtonType = (Button) convertView.findViewById(R.id.button_type);
 
-			holder.mButtonType.setText(typelist.get(position));
+			holder.mButtonType.setText(typelist.get(position).getName());
 			if (position == selectTypeNum) {
 				holder.mButtonType.setTextColor(context.getResources().getColor(R.color.colorWhite));
 				holder.mButtonType.setBackgroundResource(R.drawable.bg_box_radius_green);
@@ -177,7 +259,7 @@ public class ClassOnlineChoosePopupWindow<T> extends PopupWindow {
 				@Override
 				public void onClick(View v) {
 					mItemClickListener.typeClick(position, finalHolder.mButtonType.getText() + "");
-					typeWord = finalHolder.mButtonType.getText() + "";
+					typeWord = typelist.get(position);
 					mItemSelectListener.select(position, -1);
 				}
 			});
@@ -197,7 +279,7 @@ public class ClassOnlineChoosePopupWindow<T> extends PopupWindow {
 		}
 
 		@Override
-		public Object getItem(int position) {
+		public APPType getItem(int position) {
 			return stagelist.get(position);
 		}
 
@@ -212,7 +294,7 @@ public class ClassOnlineChoosePopupWindow<T> extends PopupWindow {
 			convertView = inflater.inflate(R.layout.item_online_class_stage, null);
 			holder.mButtonStage = (Button) convertView.findViewById(R.id.button_stage);
 			convertView.setTag(holder);
-			holder.mButtonStage.setText(stagelist.get(position));
+			holder.mButtonStage.setText(stagelist.get(position).getName());
 			if (position == selectStageNum) {
 				holder.mButtonStage.setTextColor(context.getResources().getColor(R.color.colorWhite));
 				holder.mButtonStage.setBackgroundResource(R.drawable.bg_box_radius_deepblue);
@@ -222,7 +304,7 @@ public class ClassOnlineChoosePopupWindow<T> extends PopupWindow {
 				@Override
 				public void onClick(View v) {
 					mItemClickListener.stageClick(position, finalHolder.mButtonStage.getText() + "");
-					stageWord = finalHolder.mButtonStage.getText() + "";
+					stageWord = stagelist.get(position);
 					mItemSelectListener.select(-1, position);
 				}
 			});

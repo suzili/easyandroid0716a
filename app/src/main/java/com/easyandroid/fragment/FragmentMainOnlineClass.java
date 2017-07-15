@@ -15,6 +15,7 @@ import com.easyandroid.R;
 import com.easyandroid.activity.OnlineClassDetailActivity;
 import com.easyandroid.adapter.ClassOnlineChoosePopupWindow;
 import com.easyandroid.adapter.ItemListOnlineClassAdapter;
+import com.easyandroid.dto.APPType;
 import com.easyandroid.util.ToastUtil;
 
 import java.util.ArrayList;
@@ -31,8 +32,6 @@ public class FragmentMainOnlineClass extends BaseFragment {
 	private ImageView mImageViewChoose;
 	private FrameLayout mFrameLayoutOnlineClassTitle;
 
-	private List<String> typelist = new ArrayList<>();
-	private List<String> stagelist = new ArrayList<>();
 	private List<String> mainList = new ArrayList<>();
 
 	private OpenNavListener mOpenNavListener;
@@ -59,8 +58,7 @@ public class FragmentMainOnlineClass extends BaseFragment {
 	@Override
 	protected void bindEvent() {
 		initClassList();
-		initChooseView();
-		mClassOnlineChoosePopupWindow = new ClassOnlineChoosePopupWindow(getActivity(), typelist, stagelist, new ClassOnlineChoosePopupWindow.ItemClickListener() {
+		mClassOnlineChoosePopupWindow = new ClassOnlineChoosePopupWindow(getActivity(), new ClassOnlineChoosePopupWindow.ItemClickListener() {
 			@Override
 			public void typeClick(int position, String word) {
 				ToastUtil.makeToastShort(getActivity(), "type:" + word);
@@ -128,15 +126,6 @@ public class FragmentMainOnlineClass extends BaseFragment {
 				startActivity(new Intent(getActivity(), OnlineClassDetailActivity.class));
 			}
 		});
-	}
-
-	private void initChooseView() {
-		for (int i = 0; i < 5; i++) {
-			typelist.add("type" + i);
-		}
-		for (int i = 0; i < 3; i++) {
-			stagelist.add("stage" + i);
-		}
 	}
 
 	public interface OpenNavListener {

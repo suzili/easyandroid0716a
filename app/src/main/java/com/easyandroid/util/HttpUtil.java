@@ -21,6 +21,7 @@ import okhttp3.Response;
  */
 
 public class HttpUtil {
+
     private static HttpUtil httpUtil;
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
@@ -93,7 +94,7 @@ public class HttpUtil {
      * @param url 请求地址 ，params 请求的键值对普通参数 ，files 请求的键值对文件参数
      * @return 没有返回值
      */
-    protected void postForm(final String url, final Map<String, String> params, Map<String, File> files, final PostCallBack postCallBack) {
+    public void postForm(final String url, final Map<String, String> params, Map<String, File> files, final PostCallBack postCallBack) {
 
         MultipartBody.Builder requestBody = new MultipartBody.Builder().setType(MultipartBody.FORM);
 

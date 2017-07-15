@@ -1,5 +1,6 @@
 package com.easyandroid.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity
 		mButtonRegLogout.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				ToastUtil.makeToastShort(MainActivity.this,"hola:"+mButtonRegLogout.getText());
+				startActivity(new Intent(MainActivity.this,RegisterActivity.class));
 			}
 		});
 	}
@@ -207,8 +208,6 @@ public class MainActivity extends AppCompatActivity
 				ToastUtil.makeToastShort(MainActivity.this,"hola:"+id);
 				break;
 		}
-
-		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawer.closeDrawer(GravityCompat.START);
 		return true;
 	}
