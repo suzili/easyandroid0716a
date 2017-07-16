@@ -1,13 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#f00"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:background="@android:color/white">
 
-    <TextView
-        android:id="@+id/textView"
+    <FrameLayout
+        android:id="@+id/frameLayout_work_exchange_title"
+        android:background="@color/colorMain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:padding="@dimen/layout_normal_padding"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/imageView_openNv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:src="@drawable/ic_menu_black_24dp"/>
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_big"
+            android:textColor="@color/colorWhite"
+            android:text="@string/title_workexchange"/>
+        <ImageView
+            android:id="@+id/imageView_choose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/ic_list_online_class_type"/>
+        <Button
+            android:id="@+id/button_project_release"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_gravity="center|right"
+            android:background="@drawable/ic_project_release_button_bg"/>
+
+    </FrameLayout>
+
+    <ListView
+        android:id="@+id/showWordExchangeListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
 </LinearLayout>

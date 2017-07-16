@@ -16,6 +16,7 @@ import com.easyandroid.activity.OnlineClassDetailActivity;
 import com.easyandroid.adapter.ClassOnlineChoosePopupWindow;
 import com.easyandroid.adapter.ItemListOnlineClassAdapter;
 import com.easyandroid.dto.APPType;
+import com.easyandroid.util.OpenNavListener;
 import com.easyandroid.util.ToastUtil;
 
 import java.util.ArrayList;
@@ -128,9 +129,7 @@ public class FragmentMainOnlineClass extends BaseFragment {
 		});
 	}
 
-	public interface OpenNavListener {
-		void openNav();
-	}
+
 
 	public void SetOpenNavListener(OpenNavListener mOpenNavListener) {
 		this.mOpenNavListener = mOpenNavListener;

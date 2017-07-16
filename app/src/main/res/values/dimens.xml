@@ -10,4 +10,8 @@
     <dimen name="text_size_big">16sp</dimen>
     <dimen name="layout_normal_padding">10dp</dimen>
     <dimen name="layout_big_padding">10dp</dimen>
+
+    //luo
+    <dimen name="workExchangTextSize_1">10sp</dimen>
+    <dimen name="workExchangTextSize_2">10sp</dimen>
 </resources>

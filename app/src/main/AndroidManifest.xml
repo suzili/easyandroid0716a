@@ -3,6 +3,8 @@
           package="com.easyandroid">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".EasyAndroidApplication"
@@ -15,15 +17,17 @@
         <activity
             android:name=".activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".activity.OnlineClassDetailActivity">
-        </activity>
-        <activity android:name=".activity.RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activity.OnlineClassDetailActivity"/>
+        <activity android:name=".activity.RegisterActivity"/>
+        <activity android:name=".fragment.workExchange.ProjectDetailsActivity" />
+        <activity android:name=".fragment.workExchange.MoreCommentActivity" />
+        <activity android:name=".fragment.workExchange.ProjectReleaseActivity" />
+        <activity android:name=".activity.LoginActivity"/>
     </application>
 
 </manifest>

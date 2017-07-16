@@ -25,6 +25,7 @@ import com.easyandroid.fragment.FragmentMainKnowledgeBroadcast;
 import com.easyandroid.fragment.FragmentMainOnlineClass;
 import com.easyandroid.fragment.FragmentMainPracticeOnline;
 import com.easyandroid.fragment.FragmentMainWorkExchange;
+import com.easyandroid.util.OpenNavListener;
 import com.easyandroid.util.ToastUtil;
 
 import java.util.ArrayList;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity
 	private TextView mNavHeadUserOther;
 
 	private List<Fragment> fragmentList;
+	private OpenNavListener mOpenNavListener;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity
 		mButtonRegLogout.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(MainActivity.this,RegisterActivity.class));
+				startActivity(new Intent(MainActivity.this,LoginActivity.class));
 			}
 		});
 	}
@@ -109,17 +111,20 @@ public class MainActivity extends AppCompatActivity
 	}
 
 	private void initViewPager() {
-		fragmentList = new ArrayList<>();
-
-		fragmentList.add(new FragmentMainWorkExchange());
-
-		FragmentMainOnlineClass mFragmentMainOnlineClass = new FragmentMainOnlineClass();
-		mFragmentMainOnlineClass.SetOpenNavListener(new FragmentMainOnlineClass.OpenNavListener() {
+		mOpenNavListener = new OpenNavListener() {
 			@Override
 			public void openNav() {
 				drawer.openDrawer(GravityCompat.START);
 			}
-		});
+		};
+		fragmentList = new ArrayList<>();
+
+		FragmentMainWorkExchange mFragmentMainWorkExchange = new FragmentMainWorkExchange();
+		mFragmentMainWorkExchange.setOpenNavListen(mOpenNavListener);
+		fragmentList.add(mFragmentMainWorkExchange);
+
+		FragmentMainOnlineClass mFragmentMainOnlineClass = new FragmentMainOnlineClass();
+		mFragmentMainOnlineClass.SetOpenNavListener(mOpenNavListener);
 		fragmentList.add(mFragmentMainOnlineClass);
 
 		fragmentList.add(new FragmentMainPracticeOnline());
