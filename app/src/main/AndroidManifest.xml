@@ -3,8 +3,8 @@
           package="com.easyandroid">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".EasyAndroidApplication"
@@ -24,10 +24,14 @@
         </activity>
         <activity android:name=".activity.OnlineClassDetailActivity"/>
         <activity android:name=".activity.RegisterActivity"/>
-        <activity android:name=".fragment.workExchange.ProjectDetailsActivity" />
-        <activity android:name=".fragment.workExchange.MoreCommentActivity" />
-        <activity android:name=".fragment.workExchange.ProjectReleaseActivity" />
+        <activity android:name=".fragment.workExchange.ProjectDetailsActivity"/>
+        <activity android:name=".fragment.workExchange.MoreCommentActivity"/>
+        <activity android:name=".fragment.workExchange.ProjectReleaseActivity"/>
         <activity android:name=".activity.LoginActivity"/>
+        <activity android:name=".activity.PracticeOnlineFillBlanksActivity"/>
+        <activity android:name=".activity.PracticeOnlineChoiceQuestionsActivity"/>
+        <activity android:name=".activity.PracticeOnlineShortAnswerActivity"/>
+        <activity android:name=".activity.PracticeOnlineDesignQuestionsActivity"/>
     </application>
 
 </manifest>

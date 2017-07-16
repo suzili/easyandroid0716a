@@ -92,7 +92,6 @@ public class FragmentMainOnlineClass extends BaseFragment {
 		mClassOnlineChoosePopupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
 			@Override
 			public void onDismiss() {
-//				mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type);
 				setChooserAnimition(false);
 			}
 		});
@@ -103,7 +102,6 @@ public class FragmentMainOnlineClass extends BaseFragment {
 				mClassOnlineChoosePopupWindow.setHeight(mListViewOnlineClassList.getHeight());
 				mClassOnlineChoosePopupWindow.setWidth(mFrameLayoutOnlineClassTitle.getWidth());
 				mClassOnlineChoosePopupWindow.showAsDropDown(mFrameLayoutOnlineClassTitle);
-//				mImageViewChoose.setImageResource(R.drawable.ic_list_online_class_type_fill);
 				setChooserAnimition(true);
 			}
 		});
@@ -128,8 +126,6 @@ public class FragmentMainOnlineClass extends BaseFragment {
 			}
 		});
 	}
-
-
 
 	public void SetOpenNavListener(OpenNavListener mOpenNavListener) {
 		this.mOpenNavListener = mOpenNavListener;

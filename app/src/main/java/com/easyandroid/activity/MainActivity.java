@@ -127,7 +127,9 @@ public class MainActivity extends AppCompatActivity
 		mFragmentMainOnlineClass.SetOpenNavListener(mOpenNavListener);
 		fragmentList.add(mFragmentMainOnlineClass);
 
-		fragmentList.add(new FragmentMainPracticeOnline());
+		FragmentMainPracticeOnline mFragmentMainPracticeOnline = new FragmentMainPracticeOnline();
+		mFragmentMainPracticeOnline.SetOpenNavListener(mOpenNavListener);
+		fragmentList.add(mFragmentMainPracticeOnline);
 
 		fragmentList.add(new FragmentMainKnowledgeBroadcast());
 

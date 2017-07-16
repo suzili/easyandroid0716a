@@ -13,4 +13,15 @@
         <item>xml</item>
         <item>html</item>
     </string-array>
+    <string-array name="knowledge_module">
+        <item>Android网络通信</item>
+        <item>控件应用</item>
+        <item>布局应用</item>
+    </string-array>
+    <string-array name="Type_Of_Problem">
+        <item>选择题</item>
+        <item>填空题</item>
+        <item>简答题</item>
+        <item>项目开发需求描述</item>
+    </string-array>
 </resources>

@@ -17,10 +17,13 @@
 
     <color name="colorTransparent">#00000000</color>
 
-
     <color name="workexchange_textColor_1">#4f4f4f</color>
     <color name="workexchange_textColor_2">#686868</color>
     <color name="toolbar_background">#188aef</color>
     <color name="project_details_textColro_1">#3f3f3f</color>
     <color name="project_details_textColro_2">#686868</color>
+
+    //tang
+    <color name="colorchoice">#fff</color>
+    <color name="colorunchoice">#000</color>
 </resources>

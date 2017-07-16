@@ -1,13 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#00f"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
+    <FrameLayout
+        android:id="@+id/frameLayout_online_class_title"
+        android:background="@color/colorMain"
+        android:layout_width="match_parent"
+        android:padding="@dimen/layout_normal_padding"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/imageView_openNv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:src="@drawable/ic_menu_black_24dp"/>
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_big"
+            android:textColor="@color/colorWhite"
+            android:text="@string/title_onlineclass"/>
+
+    </FrameLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:padding="@dimen/nikakulu_padding">
+
+        <Spinner
+            android:id="@+id/knowledge_module"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/knowledge_module"
+            android:layout_weight="1" />
+
+        <Spinner
+            android:id="@+id/Type_Of_Problem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/Type_Of_Problem"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/nikakulu_padding">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/practice_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ></android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+
 </LinearLayout>
